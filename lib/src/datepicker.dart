@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'persian_date.dart';
+
 typedef DateChangedCallback(int? year, int? month, int? date);
 
 const String _kDateFormatDefault = 'yyyy-mm-dd';
@@ -148,8 +149,7 @@ class _DatePickerRoute<T> extends PopupRoute<T> {
 
 class _DatePickerComponent extends StatefulWidget {
   _DatePickerComponent(
-      {
-      required this.route,
+      {required this.route,
       this.minYear: _kDefaultMinYear,
       this.maxYear: _kDefaultMaxYear,
       this.initialYear: -1,
@@ -428,16 +428,16 @@ class _DatePickerState extends State<_DatePickerComponent> {
     String monthAppend = "";
     String dayAppend = "";
 
-    List<Widget> pickers =  [];
+    List<Widget> pickers = [];
     List<String> formatSplit = widget.dateFormat!.split('-');
     for (int i = 0; i < formatSplit.length; i++) {
       var format = formatSplit[i];
-      if (format.contains("yy")) {
-        pickers.add(_renderYearsPickerComponent(yearAppend));
+      if (format.contains("dd")) {
+        pickers.add(_renderDaysPickerComponent(dayAppend));
       } else if (format.contains("mm")) {
         pickers.add(_renderMonthsPickerComponent(monthAppend, format: format));
-      } else if (format.contains("dd")) {
-        pickers.add(_renderDaysPickerComponent(dayAppend));
+      } else if (format.contains("yy")) {
+        pickers.add(_renderYearsPickerComponent(yearAppend));
       }
     }
 
