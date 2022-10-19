@@ -442,6 +442,7 @@ class _DatePickerState extends State<_DatePickerComponent> {
     }
 
     return Row(
+      textDirection: TextDirection.ltr,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: pickers,
     );
