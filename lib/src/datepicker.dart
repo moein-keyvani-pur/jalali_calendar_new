@@ -491,14 +491,14 @@ class _DatePickerState extends State<_DatePickerComponent> {
         children: <Widget>[
           Container(
             height: _kDatePickerTitleHeight,
-            child: FlatButton(
+            child: TextButton(
               child: cancelWidget,
               onPressed: () => Navigator.pop(context),
             ),
           ),
           Container(
             height: _kDatePickerTitleHeight,
-            child: FlatButton(
+            child: TextButton(
               child: confirmWidget,
               onPressed: () {
                 if (widget.route.onConfirm != null) {
